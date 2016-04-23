@@ -26,34 +26,45 @@ angular.module('lieuxDeFormationAngularApp')
 
 
     /*========= F I C H I E R S ==========*/
-    document.querySelector('#file').onchange = function() {
+    var alertSuccess =  function(){
+      $alert({
+        title: 'C\'est tout bon !',
+        content: 'Le fichier CSV est chargé.',
+        container: '#alerts-container', type: 'success', show: true
+      });
+    };
+
+    $scope.markers = {};
+    $scope.markers.models = [];
+    var markers = {};
+    markers.models = [];
+
+    document.querySelector('#file-agency').onchange = function() {
       let file = this.files[0];
-      if(file.type != 'application/json'){
-        $alert({
-          title: 'Attention !',
-          content: 'Ce n\'est pas un fichier JSON !',
-          container: '#alerts-container', type: 'danger', show: true
-        });
-        return;
-      }
-      let reader = new FileReader();
-      reader.readAsText(file, 'UTF-8');
-      reader.onload = function() {
-          var datafile = JSON.parse(reader.result);
-          $alert({
-            title: 'C\'est tout bon !',
-            content: 'Le fichier JSON est chargé.',
-            container: '#alerts-container', type: 'success', show: true
-          });
-      };
+      Papa.parse(file, {
+        header: true,
+	      complete: function(results) {
+		      console.log("Finished:", results.data);
+
+          alertSuccess();
+          for (let dataline of results.data) {
+            markers.models.push({
+              id:dataline.codepostal,
+              latitude:dataline.latitude,
+              longitude:dataline.longitude,
+            });
+          }
+          $scope.markers = markers;
+	      }
+      });
     };
 
     /*========= G O O G L E _ M A P ==========*/
-    uiGmapGoogleMapApi.then(function(maps) {
+    uiGmapGoogleMapApi.then(function() {
       $scope.map = { center: { latitude: 47, longitude: 2.5 }, zoom: 6 };
       $scope.map.options = {
         disableDefaultUI: true
-      }
+      };
     });
 
   });

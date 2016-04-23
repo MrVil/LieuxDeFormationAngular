@@ -26,9 +26,9 @@ angular.module('lieuxDeFormationAngularApp')
       function(res){
         $scope.dataset = res.data;
         $log.log(res.data[0].Name);
-        $scope.isdone = 'Le serveur à répondu !'
+        $scope.isdone = 'Le serveur à répondu !';
       }, function(res){
-        $scope.isdone = 'Le serveur n\'a pas répondu, veuillez recharger la page !'
+        $scope.isdone = 'Le serveur n\'a pas répondu, veuillez recharger la page !';
         $log.error(res.statusText);
         $log.error('Cannot access the server');
       }

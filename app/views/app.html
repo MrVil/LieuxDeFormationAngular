@@ -1,8 +1,15 @@
-<input id="file" type="file" name="file">
+<h3>Données des agences</h3>
+<input id="file-agency" type="file" name="file">
+<br>
+<div id="alerts-container"></div>
+
+<h3>Données des lieux de location possibles</h3>
+<input id="file-city" type="file" name="file">
 <br>
 <div id="alerts-container"></div>
 
 <br>
+<h3>Résultats</h3>
 <p><i>Coût par agence en €</i></p>
 <canvas id="bar" class="chart chart-bar"
   chart-data="data"
@@ -11,9 +18,16 @@
   >
 </canvas>
 
+<br>
+<h3>Visualisation du problème</h3>
 <ui-gmap-google-map
   center='map.center'
   zoom='map.zoom'
   options='map.options'
   >
+  <ui-gmap-markers
+    models='markers.models'
+    coords="'self'"
+    >
+  </ui-gmap-markers>
 </ui-gmap-google-map>
