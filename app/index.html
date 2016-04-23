@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Projet - Lieux de formation</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="lieuxDeFormationAngularApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="header">
+      <div class="navbar navbar-default" role="navigation" bs-navbar>
+        <div class="container">
+          <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="fa fa-bars"></span>
+            </button>
+
+            <a class="navbar-brand" href="#/">Projet - Lieux de formation</a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li data-match-route="/$">
+                <a href="#/"><span class="fa fa-home"></span> Acceuil</a>
+              </li>
+              <li data-match-route="/app">
+                <a ng-href="#/app"><span class="fa fa-bar-chart"></span> Application</a>
+              </li>
+              <li data-match-route="/report">
+                <a ng-href="#/report"><span class="fa fa-book"></span> Rapport</a>
+              </li>
+              <li data-match-route="/contacts">
+                <a ng-href="#/contacts"><span class="fa fa-comments"></span> Contacts</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+    <div ng-view=""></div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <p>Réalisé par
+          <a href="http://bastien.guyl.me">Guyl Bastien</a>,
+          <a href="http://jonathan.pl">Platteau Jonathan</a> et
+          <a href="https://github.com/zominym">Zominy Marc</a>
+          a but éducatif <span class="fa fa-graduation-cap "></span>
+         </p>
+      </div>
+    </div>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/Chart.js/Chart.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/app.js"></script>
+        <script src="scripts/controllers/report.js"></script>
+        <script src="scripts/controllers/contacts.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
