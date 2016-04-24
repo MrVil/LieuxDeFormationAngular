@@ -36,8 +36,6 @@ angular.module('lieuxDeFormationAngularApp')
 
     $scope.markers = {};
     $scope.markers.models = [];
-    var markers = {};
-    markers.models = [];
 
     document.querySelector('#file-agency').onchange = function() {
       let file = this.files[0];
@@ -48,13 +46,12 @@ angular.module('lieuxDeFormationAngularApp')
 
           alertSuccess();
           for (let dataline of results.data) {
-            markers.models.push({
+            $scope.markers.models.push({
               id:dataline.codepostal,
               latitude:dataline.latitude,
-              longitude:dataline.longitude,
+              longitude:dataline.longitude
             });
           }
-          $scope.markers = markers;
 	      }
       });
     };
