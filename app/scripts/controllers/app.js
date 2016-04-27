@@ -8,7 +8,7 @@
  * Controller of the lieuxDeFormationAngularApp
  */
 angular.module('lieuxDeFormationAngularApp')
-  .controller('AppCtrl', function ($scope, $log, $alert, uiGmapGoogleMapApi) {
+  .controller('AppCtrl', function ($scope, $log, $alert, $http, uiGmapGoogleMapApi) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -60,7 +60,7 @@ angular.module('lieuxDeFormationAngularApp')
       });
     };
 
-    document.querySelector('#file-cities').onchange = function() {
+    /*document.querySelector('#file-cities').onchange = function() {
       let file = this.files[0];
       Papa.parse(file, {
         header: true,
@@ -73,14 +73,12 @@ angular.module('lieuxDeFormationAngularApp')
           }
         }
       });
-    };
+    };*/
 
-    document
-
-    document.querySelector('#launch').onclick = function() {
+    /*document.querySelector('#launch').onclick = function() {
       $http.get('http://localhost:5000/api/genetics').then(
         function(res){
-          
+
         },
         function(res){
           $scope.isdone = 'Le serveur n\'a pas répondu, veuillez recharger la page !';
@@ -88,7 +86,7 @@ angular.module('lieuxDeFormationAngularApp')
           $log.error('Cannot access the server');
         }
       )
-    }
+    }*/
 
     /*========= G O O G L E _ M A P ==========*/
     uiGmapGoogleMapApi.then(function() {
