@@ -37,15 +37,19 @@ angular.module('lieuxDeFormationAngularApp')
     $scope.markers = {};
     $scope.markers.models = [];
 
+    var filesAgenciesLoaded = false;
+    var filesCitiesLoaded = false;
+
     document.querySelector('#file-agency').onchange = function() {
       let file = this.files[0];
       Papa.parse(file, {
         header: true,
 	      complete: function(results) {
-		      console.log("Finished:", results.data);
-
+		      console.log('Finished:', results.data);
           alertSuccess();
+          filesAgenciesLoaded = true;
           for (let dataline of results.data) {
+            $http.post('http://localhost:5000/api/agencies', dataline);
             $scope.markers.models.push({
               id:dataline.codepostal,
               latitude:dataline.latitude,
@@ -55,6 +59,36 @@ angular.module('lieuxDeFormationAngularApp')
 	      }
       });
     };
+
+    document.querySelector('#file-cities').onchange = function() {
+      let file = this.files[0];
+      Papa.parse(file, {
+        header: true,
+        complete: function(results) {
+          console.log('Finished:', results.data);
+          alertSuccess();
+          filesCitiesLoaded = true;
+          for (let dataline of results.data) {
+            $http.post('http://localhost:5000/api/cities', dataline);
+          }
+        }
+      });
+    };
+
+    document
+
+    document.querySelector('#launch').onclick = function() {
+      $http.get('http://localhost:5000/api/genetics').then(
+        function(res){
+          
+        },
+        function(res){
+          $scope.isdone = 'Le serveur n\'a pas répondu, veuillez recharger la page !';
+          $log.error(res.statusText);
+          $log.error('Cannot access the server');
+        }
+      )
+    }
 
     /*========= G O O G L E _ M A P ==========*/
     uiGmapGoogleMapApi.then(function() {
