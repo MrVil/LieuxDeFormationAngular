@@ -15,3 +15,16 @@ angular.module('lieuxDeFormationAngularApp')
       'Karma'
     ];
   });
+
+  /*$scope.markers.models.push({
+    id:dataline.codepostal1,
+    latitude:dataline.latitude1,
+    longitude:dataline.longitude1,
+    icon: agencyMarker
+  });
+  $scope.markers.models.push({
+    id:dataline.codepostal2,
+    latitude:dataline.latitude2,
+    longitude:dataline.longitude2,
+    icon: cityMarker
+  });*/

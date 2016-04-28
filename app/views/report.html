@@ -1,1 +1,22 @@
-<p>This is the report view.</p>
+<h3>Jeu de données solutions (au format CSV)</h3>
+<input id="file-solution-chart" type="file" name="file">
+<br>
+<div class="alerts-container"></div>
+<br>
+<h3>Résultats</h3>
+<p><i>Cout total par itération</i></p>
+<canvas id="line-cost" class="chart chart-line"
+  chart-data="dataCost"
+  >
+</canvas>
+<p><i>Distance totale par itération</i></p>
+<canvas id="line-distance" class="chart chart-line"
+  chart-data="dataDistance"
+  >
+</canvas>
+<p><i>Nombre de centre ouvert par itération</i></p>
+<canvas id="line-nb-centers" class="chart chart-line"
+  chart-data="dataNbCenters"
+  chart-labels="labels"
+  >
+</canvas>

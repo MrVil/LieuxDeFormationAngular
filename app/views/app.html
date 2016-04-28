@@ -1,22 +1,7 @@
-<h3>Données des agences</h3>
-<input id="file-agency" type="file" name="file">
+<h3>Jeu de données solutions (au format CSV)</h3>
+<input id="file-solution-map" type="file" name="file">
 <br>
-<div id="alerts-container"></div>
-
-<h3>Données des lieux de location possibles</h3>
-<input id="file-city" type="file" name="file">
-<br>
-
-<br>
-<h3>Résultats</h3>
-<p><i>Coût par agence en €</i></p>
-<canvas id="bar" class="chart chart-bar"
-  chart-data="data"
-  chart-labels="labels"
-  chart-series="series"
-  >
-</canvas>
-
+<div class="alerts-container"></div>
 <br>
 <h3>Visualisation du problème</h3>
 <ui-gmap-google-map
@@ -29,4 +14,10 @@
     coords="'self'"
     >
   </ui-gmap-markers>
+  <ui-gmap-polyline
+    ng-repeat="p in polylines"
+    path="p.path"
+    stroke="p.stroke"
+    >
+  </ui-gmap-polyline>
 </ui-gmap-google-map>
