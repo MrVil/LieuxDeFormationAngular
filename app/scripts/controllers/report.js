@@ -28,13 +28,23 @@ angular.module('lieuxDeFormationAngularApp')
       $scope.dataCost = [[]];
       $scope.dataDistance = [[]];
       $scope.dataNbCenters = [[]];
+      $scope.labels = [];
       Papa.parse(file, {
         header: true,
 	      complete: function(results) {
           alertSuccess();
+          let i = 0;
           for (let dataline of results.data) {
-            if(dataline === undefined)
+            if(dataline === undefined){
               break;
+            }
+            i++;
+            if(i%10000 === 0){
+              $scope.labels.push(i);
+            }
+            else{
+              $scope.labels.push("");
+            }
             $scope.dataCost[0].push(dataline.cout);
             $scope.dataDistance[0].push(dataline.distanceTotale);
             $scope.dataNbCenters[0].push(dataline.nbcentres);

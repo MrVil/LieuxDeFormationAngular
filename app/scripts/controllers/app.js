@@ -39,16 +39,23 @@ angular.module('lieuxDeFormationAngularApp')
           alertSuccess();
           let i = 0;
           for (let dataline of results.data) {
-            if(dataline === undefined)
-              break;
+            if(dataline === undefined || dataline.longitude1 === "" || dataline.latitude1 === ""){
+              dataline = {longitude1:"0", latitude1:"0",nbpersonne:"0",longitude2:"0", latitude2:"0"};
+            }
             i++;
+            $log.log(dataline);
+            /*$scope.markers.models.push({
+              id:i,
+              latitude:dataline.latitude1,
+              longitude:dataline.longitude1,
+            });*/
             $scope.polylines.push({
               id:i,
               path:[
                 {latitude:dataline.latitude1, longitude:dataline.longitude1},
                 {latitude:dataline.latitude2, longitude:dataline.longitude2}
               ],
-              stroke: { color: '#000000', weight: 1+5*(dataline.nbpersonne1/10) }
+              stroke: { color: '#c03200', weight: 1+5*(dataline.nbpersonne1/10) }
             });
           }
 	      }
