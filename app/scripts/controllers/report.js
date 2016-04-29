@@ -24,17 +24,17 @@ angular.module('lieuxDeFormationAngularApp')
     };
 
     document.querySelector('#file-solution-chart').onchange = function() {
-      let file = this.files[0];
+      var f2 = this.files[0];
       $scope.dataCost = [[]];
       $scope.dataDistance = [[]];
       $scope.dataNbCenters = [[]];
       $scope.labels = [];
-      Papa.parse(file, {
+      Papa.parse(f2, {
         header: true,
 	      complete: function(results) {
           alertSuccess();
-          let i = 0;
-          for (let dataline of results.data) {
+          var i = 0;
+          for (var dataline in results.data) {
             if(dataline === undefined){
               break;
             }

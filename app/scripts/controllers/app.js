@@ -29,16 +29,16 @@ angular.module('lieuxDeFormationAngularApp')
     $scope.polylines = [];
 
     document.querySelector('#file-solution-map').onchange = function() {
-      let file = this.files[0];
+      var f1 = this.files[0];
       $scope.markers = {};
       $scope.markers.models = [];
       $scope.polylines = [];
-      Papa.parse(file, {
+      Papa.parse(f1, {
         header: true,
 	      complete: function(results) {
           alertSuccess();
-          let i = 0;
-          for (let dataline of results.data) {
+          var i = 0;
+          for (var dataline in results.data) {
             if(dataline === undefined || dataline.longitude1 === "" || dataline.latitude1 === ""){
               dataline = {longitude1:"0", latitude1:"0",nbpersonne:"0",longitude2:"0", latitude2:"0"};
             }
