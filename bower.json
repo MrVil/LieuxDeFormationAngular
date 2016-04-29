@@ -12,7 +12,6 @@
     "angular-route": "^1.4.0",
     "angular-sanitize": "^1.4.0",
     "angular-touch": "^1.4.0",
-    "font-awesome": "fontawesome#^4.6.1",
     "angular-chart.js": "^0.10.0",
     "angular-google-maps": "^2.3.2",
     "angular-strap": "^2.3.8",
@@ -30,11 +29,6 @@
         "less/bootstrap.less",
         "dist/css/bootstrap.css",
         "dist/js/bootstrap.js"
-      ]
-    },
-    "font-awesome": {
-      "main": [
-        "css/font-awesome.css"
       ]
     }
   }
