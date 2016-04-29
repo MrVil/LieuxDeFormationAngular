@@ -37,12 +37,12 @@ angular.module('lieuxDeFormationAngularApp')
         header: true,
 	      complete: function(results) {
           alertSuccess();
-          var i = 0;
-          for (var dataline in results.data) {
-            if(dataline === undefined || dataline.longitude1 === "" || dataline.latitude1 === ""){
+
+          for (var i = 0; i < results.data.length; i++/*var dataline of results.data*/) {
+            var dataline = results.data[i];
+            if(dataline === undefined || dataline.longitude1 === "" || dataline.latitude1 === "" || dataline.longitude1 === undefined){
               dataline = {longitude1:"0", latitude1:"0",nbpersonne:"0",longitude2:"0", latitude2:"0"};
             }
-            i++;
             $log.log(dataline);
             /*$scope.markers.models.push({
               id:i,

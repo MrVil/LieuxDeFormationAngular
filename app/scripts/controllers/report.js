@@ -33,8 +33,8 @@ angular.module('lieuxDeFormationAngularApp')
         header: true,
 	      complete: function(results) {
           alertSuccess();
-          var i = 0;
-          for (var dataline in results.data) {
+          for (var i = 0; i < results.data.length; i++) {
+            var dataline = results.data[i];
             if(dataline === undefined){
               break;
             }
